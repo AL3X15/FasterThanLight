@@ -1,13 +1,13 @@
 package com.spring.henallux.javawebproject.model;
 
-public class CheeseLanguage {
+public class CategoryLanguage {
 	private Integer id;
 	private String description;
 
-	private Cheese cheese;
+	private Category category;
 	private Language language;
 
-	public CheeseLanguage() {
+	public CategoryLanguage() {
 
 	}
 
@@ -20,8 +20,8 @@ public class CheeseLanguage {
 		this.description = description;
 	}
 
-	public void setCheese(Cheese cheese) {
-		this.cheese = cheese;
+	public void setCategory(Category category) {
+		this.category = category;
 	}
 
 	public void setLanguage(Language language) {
@@ -37,8 +37,8 @@ public class CheeseLanguage {
 		return description;
 	}
 
-	public Cheese getCheese() {
-		return cheese;
+	public Category getCategory() {
+		return category;
 	}
 
 	public Language getLanguage() {

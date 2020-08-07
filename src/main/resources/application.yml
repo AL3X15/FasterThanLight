@@ -1,8 +1,8 @@
 server:
-  port: 8802
+  port: 8082
   servlet:
     context-path: /cheeseKing
 spring:
   datasource:
     password: root
-    url: jdbc:mysql://localhost:3306/javawebprojectcheeseking?user=root&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+    url: jdbc:mysql://localhost:3306/javawebproject?user=root&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
