@@ -6,7 +6,8 @@ public class Language {
 	private Integer id;
 	private String name;
 
-	private Collection<CheeseLanguage> descriptions;
+	private Collection<ShipLanguage> descriptionsShip;
+	private Collection<CategoryLanguage> descriptionsCategory;
 
 	public Language() {
 
@@ -21,8 +22,12 @@ public class Language {
 		this.name = name;
 	}
 
-	public void setDescriptions(Collection<CheeseLanguage> descriptions) {
-		this.descriptions = descriptions;
+	public void setDescriptionsShip(Collection<ShipLanguage> descriptionsShip) {
+		this.descriptionsShip = descriptionsShip;
+	}
+
+	public void setDescriptionsCategory(Collection<CategoryLanguage> descriptionsCategory) {
+		this.descriptionsCategory = descriptionsCategory;
 	}
 
 	//Getters section
@@ -34,7 +39,11 @@ public class Language {
 		return name;
 	}
 
-	public Collection<CheeseLanguage> getDescriptions() {
-		return descriptions;
+	public Collection<ShipLanguage> getDescriptionsShip() {
+		return descriptionsShip;
+	}
+
+	public Collection<CategoryLanguage> getDescriptionsCategory() {
+		return descriptionsCategory;
 	}
 }

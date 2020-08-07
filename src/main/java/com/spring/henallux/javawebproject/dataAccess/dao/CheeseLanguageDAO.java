@@ -1,17 +1,6 @@
 package com.spring.henallux.javawebproject.dataAccess.dao;
 
-import com.spring.henallux.javawebproject.dataAccess.entity.CheeseLanguageEntity;
-import com.spring.henallux.javawebproject.dataAccess.repository.CheeseLanguageRepository;
-import com.spring.henallux.javawebproject.dataAccess.repository.LanguageRepository;
-import com.spring.henallux.javawebproject.model.Cheese;
-import com.spring.henallux.javawebproject.model.CheeseLanguage;
-import com.spring.henallux.javawebproject.utility.ProviderConverter;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
-
-import java.util.Locale;
-import java.util.Optional;
-
+/*
 @Component
 public class CheeseLanguageDAO {
 	private final ProviderConverter mapper;
@@ -41,3 +30,4 @@ public class CheeseLanguageDAO {
 		return mapper.cheeseLanguageEntityToCheeseLanguageModel(cheeseLanguage.get());
 	}
 }
+*/

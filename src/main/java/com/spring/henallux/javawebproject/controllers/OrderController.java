@@ -1,7 +1,6 @@
 package com.spring.henallux.javawebproject.controllers;
 
 import com.spring.henallux.javawebproject.dataAccess.entity.UserEntity;
-import com.spring.henallux.javawebproject.model.Cheese;
 import com.spring.henallux.javawebproject.model.Line;
 import com.spring.henallux.javawebproject.model.Order;
 import com.spring.henallux.javawebproject.model.Ship;
@@ -74,8 +73,8 @@ public class OrderController extends ControllerBase {
 			for (Map.Entry<Ship, Double> basketEntry : basket.entrySet()) {
 				lineServices.saveLine(new Line() {{
 					setQuantity(basketEntry.getValue());
-					setCheese(basketEntry.getKey());
-					setPricePerKilo(basketEntry.getKey().getPricePerKilo());
+					setShip(basketEntry.getKey());
+					setPrice(basketEntry.getKey().getUnitPrice());
 					setOrder(orderSave);
 				}});
 			}

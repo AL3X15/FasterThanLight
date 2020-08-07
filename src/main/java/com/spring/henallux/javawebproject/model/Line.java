@@ -4,7 +4,7 @@ package com.spring.henallux.javawebproject.model;
 public class Line {
 	private Integer id;
 	private Double quantity;
-	private Double pricePerKilo;
+	private Double price;
 
 	private Order order;
 	private Ship ship;
@@ -30,8 +30,8 @@ public class Line {
 		this.ship = ship;
 	}
 
-	public void setPricePerKilo(Double pricePerKilo) {
-		this.pricePerKilo = pricePerKilo;
+	public void setPrice(Double price) {
+		this.price = price;
 	}
 
 	//Getters section
@@ -51,7 +51,7 @@ public class Line {
 		return ship;
 	}
 
-	public Double getPricePerKilo() {
-		return pricePerKilo;
+	public Double getPrice() {
+		return price;
 	}
 }

@@ -4,24 +4,26 @@ import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 
 public class BasketEntry {
-	private int cheeseId;
+	private int shipId;
 	@NotNull
 	@Min(0)
 	private Double quantity;
 
-	public int getCheeseId() {
-		return cheeseId;
-	}
-
-	public Double getQuantity() {
-		return quantity;
-	}
-
-	public void setCheeseId(int cheeseId) {
-		this.cheeseId = cheeseId;
+	//Setters section
+	public void setShipId(int shipId) {
+		this.shipId = shipId;
 	}
 
 	public void setQuantity(Double quantity) {
 		this.quantity = quantity;
+	}
+
+	//Getters section
+	public int getShipId() {
+		return shipId;
+	}
+
+	public Double getQuantity() {
+		return quantity;
 	}
 }

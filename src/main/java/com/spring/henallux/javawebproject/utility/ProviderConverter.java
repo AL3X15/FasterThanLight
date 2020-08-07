@@ -18,20 +18,36 @@ public class ProviderConverter {
 		return mapper.map(user, User.class);
 	}
 
-	public CheeseEntity cheeseModelToCheeseEntity(Cheese cheese) {
-		return mapper.map(cheese, CheeseEntity.class);
+	public ShipEntity shipModelToShipEntity(ShipEntity ship) {
+		return mapper.map(ship, ShipEntity.class);
 	}
 
-	public Cheese cheeseEntityToCheeseModel(CheeseEntity cheese) {
-		return mapper.map(cheese, Cheese.class);
+	public Ship shipEntityToShipModel(ShipEntity ship) {
+		return mapper.map(ship, Ship.class);
 	}
 
-	public CheeseLanguage cheeseLanguageEntityToCheeseLanguageModel(CheeseLanguageEntity cheeseLanguageEntity) {
-		return mapper.map(cheeseLanguageEntity, CheeseLanguage.class);
+	public ShipLanguage shipLanguageEntityToShipLanguageModel(ShipLanguageEntity shipLanguageEntity) {
+		return mapper.map(shipLanguageEntity, ShipLanguage.class);
 	}
 
-	public CheeseLanguageEntity cheeseLanguageModelToCheeseLanguageEntity(CheeseLanguage cheeseLanguage) {
-		return mapper.map(cheeseLanguage, CheeseLanguageEntity.class);
+	public ShipLanguageEntity shipLanguageModelToShipLanguageEntity(ShipLanguage shipLanguage) {
+		return mapper.map(shipLanguage, ShipLanguageEntity.class);
+	}
+
+	public CategoryEntity categoryModelToCategoryEntity(Category category) {
+		return mapper.map(category, CategoryEntity.class);
+	}
+
+	public Category categoryEntityToCategoryModel(CategoryEntity category) {
+		return mapper.map(category, Category.class);
+	}
+
+	public CategoryLanguage categoryLanguageEntityToCategoryLanguageModel(CategoryLanguageEntity categoryLanguageEntity) {
+		return mapper.map(categoryLanguageEntity, CategoryLanguage.class);
+	}
+
+	public CategoryLanguageEntity categoryLanguageModelToCategoryLanguageEntity(CategoryLanguage cheeseLanguage) {
+		return mapper.map(cheeseLanguage, CategoryLanguageEntity.class);
 	}
 
 	public Order orderEntityToOrderModel(OrderEntity order) {

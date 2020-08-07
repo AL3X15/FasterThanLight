@@ -1,5 +1,7 @@
 package com.spring.henallux.javawebproject.dataAccess.entity;
 
+import com.spring.henallux.javawebproject.model.Category;
+
 import javax.persistence.*;
 import java.util.Collection;
 
@@ -14,7 +16,10 @@ public class LanguageEntity {
 	private String name;
 
 	@OneToMany(mappedBy = "language")
-	private Collection<CheeseLanguageEntity> descriptions;
+	private Collection<ShipLanguageEntity> descriptionsShip;
+	@OneToMany(mappedBy = "language")
+	private Collection<CategoryLanguageEntity> descriptionsCategory;
+
 
 	public LanguageEntity() {
 
@@ -29,9 +34,14 @@ public class LanguageEntity {
 		this.name = name;
 	}
 
-	public void setDescriptions(Collection<CheeseLanguageEntity> descriptions) {
-		this.descriptions = descriptions;
+	public void setDescriptionsShip(Collection<ShipLanguageEntity> descriptionsShip) {
+		this.descriptionsShip = descriptionsShip;
 	}
+
+	public void setDescriptionsCategory(Collection<CategoryLanguageEntity> descriptionsCategory) {
+		this.descriptionsCategory = descriptionsCategory;
+	}
+
 
 	//Getters section
 	public Integer getId() {
@@ -42,7 +52,12 @@ public class LanguageEntity {
 		return name;
 	}
 
-	public Collection<CheeseLanguageEntity> getDescriptions() {
-		return descriptions;
+	public Collection<ShipLanguageEntity> getDescriptionsShip() {
+		return descriptionsShip;
 	}
+
+	public Collection<CategoryLanguageEntity> getDescriptionsCategory() {
+		return descriptionsCategory;
+	}
+
 }

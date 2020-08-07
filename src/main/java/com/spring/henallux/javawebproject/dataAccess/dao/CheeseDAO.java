@@ -1,17 +1,6 @@
 package com.spring.henallux.javawebproject.dataAccess.dao;
 
-import com.spring.henallux.javawebproject.dataAccess.entity.CheeseEntity;
-import com.spring.henallux.javawebproject.dataAccess.repository.CheeseRepository;
-import com.spring.henallux.javawebproject.exceptions.CheeseNotFound;
-import com.spring.henallux.javawebproject.model.Cheese;
-import com.spring.henallux.javawebproject.utility.ProviderConverter;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
-
-import java.util.Collection;
-import java.util.Optional;
-import java.util.stream.Collectors;
-
+/*
 @Component
 public class CheeseDAO {
 	private final CheeseRepository dataAccess;
@@ -34,3 +23,4 @@ public class CheeseDAO {
 		return mapper.cheeseEntityToCheeseModel(cheeseEntity.get());
 	}
 }
+*/
