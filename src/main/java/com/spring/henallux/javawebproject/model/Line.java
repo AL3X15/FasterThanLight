@@ -7,7 +7,7 @@ public class Line {
 	private Double pricePerKilo;
 
 	private Order order;
-	private Cheese cheese;
+	private Ship ship;
 
 	public Line() {
 
@@ -26,8 +26,8 @@ public class Line {
 		this.order = order;
 	}
 
-	public void setCheese(Cheese cheese) {
-		this.cheese = cheese;
+	public void setShip(Ship ship) {
+		this.ship = ship;
 	}
 
 	public void setPricePerKilo(Double pricePerKilo) {
@@ -47,8 +47,8 @@ public class Line {
 		return order;
 	}
 
-	public Cheese getCheese() {
-		return cheese;
+	public Ship getShip() {
+		return ship;
 	}
 
 	public Double getPricePerKilo() {

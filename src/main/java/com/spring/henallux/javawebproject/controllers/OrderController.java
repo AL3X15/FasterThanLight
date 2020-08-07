@@ -4,6 +4,7 @@ import com.spring.henallux.javawebproject.dataAccess.entity.UserEntity;
 import com.spring.henallux.javawebproject.model.Cheese;
 import com.spring.henallux.javawebproject.model.Line;
 import com.spring.henallux.javawebproject.model.Order;
+import com.spring.henallux.javawebproject.model.Ship;
 import com.spring.henallux.javawebproject.model.User;
 import com.spring.henallux.javawebproject.services.LineServices;
 import com.spring.henallux.javawebproject.services.OrderServices;
@@ -57,7 +58,7 @@ public class OrderController extends ControllerBase {
 	}
 
 	@RequestMapping(value = "/makeOrder", method = RequestMethod.GET)
-	public String makeCommand(@ModelAttribute(value = Constants.BASKET) HashMap<Cheese, Double> basket,
+	public String makeCommand(@ModelAttribute(value = Constants.BASKET) HashMap<Ship, Double> basket,
 	                          Authentication authentication) {
 		try {
 			Order order = new Order();
@@ -70,7 +71,7 @@ public class OrderController extends ControllerBase {
 			order.setCustomer(user);
 			Order orderSave = orderServices.saveOrder(order);
 
-			for (Map.Entry<Cheese, Double> basketEntry : basket.entrySet()) {
+			for (Map.Entry<Ship, Double> basketEntry : basket.entrySet()) {
 				lineServices.saveLine(new Line() {{
 					setQuantity(basketEntry.getValue());
 					setCheese(basketEntry.getKey());

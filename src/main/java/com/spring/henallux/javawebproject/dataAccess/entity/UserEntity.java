@@ -63,7 +63,6 @@ public class UserEntity implements UserDetails {
 		return UtilAuthority.getAuthorities(authorities);
 	}
 
-	//TODO setter + getter
 	//Setters section
 	public void setUsername(String username) {
 		this.username = username;

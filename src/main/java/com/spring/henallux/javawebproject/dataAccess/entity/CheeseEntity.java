@@ -2,7 +2,7 @@ package com.spring.henallux.javawebproject.dataAccess.entity;
 
 import javax.persistence.*;
 import java.util.Collection;
-
+/*
 @Entity
 @Table(name = "cheese")
 public class CheeseEntity {
@@ -76,3 +76,4 @@ public class CheeseEntity {
 		return translations;
 	}
 }
+*/

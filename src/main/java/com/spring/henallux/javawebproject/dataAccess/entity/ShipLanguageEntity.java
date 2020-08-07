@@ -1,10 +1,10 @@
 package com.spring.henallux.javawebproject.dataAccess.entity;
 
 import javax.persistence.*;
-/*
+
 @Entity
-@Table(name = "cheese_language")
-public class CheeseLanguageEntity {
+@Table(name = "ship_language")
+public class ShipLanguageEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
@@ -12,15 +12,14 @@ public class CheeseLanguageEntity {
 	@Column(name = "description")
 	private String description;
 
-	@JoinColumn(name = "cheese_id", referencedColumnName = "id")
+	@JoinColumn(name = "ship_id", referencedColumnName = "id")
 	@ManyToOne
-	private CheeseEntity cheese;
+	private ShipLanguageEntity ship;
 	@JoinColumn(name = "language_id", referencedColumnName = "id")
 	@ManyToOne
 	private LanguageEntity language;
 
-	public CheeseLanguageEntity() {
-
+	public ShipLanguageEntity() {
 	}
 
 	//Setters section
@@ -32,8 +31,8 @@ public class CheeseLanguageEntity {
 		this.description = description;
 	}
 
-	public void setCheese(CheeseEntity cheese) {
-		this.cheese = cheese;
+	public void setShip(ShipLanguageEntity ship) {
+		this.ship = ship;
 	}
 
 	public void setLanguage(LanguageEntity language) {
@@ -49,12 +48,12 @@ public class CheeseLanguageEntity {
 		return description;
 	}
 
-	public CheeseEntity getCheese() {
-		return cheese;
+	public ShipLanguageEntity getShip() {
+		return ship;
 	}
 
 	public LanguageEntity getLanguage() {
 		return language;
 	}
+
 }
-*/

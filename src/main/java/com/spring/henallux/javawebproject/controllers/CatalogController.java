@@ -3,6 +3,8 @@ package com.spring.henallux.javawebproject.controllers;
 import com.spring.henallux.javawebproject.model.BasketEntry;
 import com.spring.henallux.javawebproject.model.Cheese;
 import com.spring.henallux.javawebproject.model.CheeseLanguage;
+import com.spring.henallux.javawebproject.model.Ship;
+import com.spring.henallux.javawebproject.model.ShipLanguage;
 import com.spring.henallux.javawebproject.services.CheeseLanguageServices;
 import com.spring.henallux.javawebproject.services.CheeseServices;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,7 +33,7 @@ public class CatalogController extends ControllerBase {
 
 	@RequestMapping(method = RequestMethod.GET)
 	public String catalog(Model model, Locale locale) {
-		List<Cheese> cheeses = (List<Cheese>) cheeseServices.findAll();
+		List<Ship> cheeses = (List<Ship>) cheeseServices.findAll();
 		model.addAttribute("cheeses", cheeses);
 		model.addAttribute("title", getMessageSource().getMessage("catalog", null, locale));
 		return "integrated:catalog";
@@ -41,17 +43,17 @@ public class CatalogController extends ControllerBase {
 	public String cheese(@PathVariable(value = "id") String id, Model model, Locale locale) {
 		try {
 			int idConverted = Integer.valueOf(id);
-			CheeseLanguage cheeseLanguage = cheeseLanguageServices.findCheese(idConverted, locale);
+			ShipLanguage shipLanguage = cheeseLanguageServices.findCheese(idConverted, locale);
 
 			BasketEntry basketEntry = new BasketEntry() {{
-				setCheeseId(cheeseLanguage.getCheese().getId());
+				setCheeseId(shipLanguage.getShip().getId());
 				setQuantity(0.);
 			}};
 
 			if (!model.containsAttribute("basketEntry"))
 				model.addAttribute("basketEntry", basketEntry);
 
-			model.addAttribute("cheeseLanguage", cheeseLanguage);
+			model.addAttribute("cheeseLanguage", shipLanguage);
 			model.addAttribute("title", getMessageSource().getMessage("cheese", null, locale));
 
 			return "integrated:cheese";

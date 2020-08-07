@@ -28,13 +28,13 @@ public class BasketController extends ControllerBase {
 	}
 
 	@ModelAttribute(Constants.BASKET)
-	public HashMap<Cheese, Double> basket() {
+	public HashMap<Ship, Double> basket() {
 		return new HashMap<>();
 	}
 
 	@RequestMapping(method = RequestMethod.GET)
 	public String getBasket(Model model, Locale locale,
-	                        @ModelAttribute(Constants.BASKET) HashMap<Cheese, Double> basket) {
+	                        @ModelAttribute(Constants.BASKET) HashMap<Ship, Double> basket) {
 		model.addAttribute(Constants.BASKET, basket);
 		model.addAttribute("title", getMessageSource().getMessage("basket", null, locale));
 		if (!model.containsAttribute("basketEntryEdit"))
@@ -44,7 +44,7 @@ public class BasketController extends ControllerBase {
 	}
 
 	@RequestMapping(method = RequestMethod.POST)
-	public String addToBasket(@ModelAttribute(value = Constants.BASKET) HashMap<Cheese, Double> basket,
+	public String addToBasket(@ModelAttribute(value = Constants.BASKET) HashMap<Ship, Double> basket,
 	                          @Valid @ModelAttribute(value = "basketEntry") BasketEntry basketEntry,
 	                          BindingResult result,
 	                          RedirectAttributes redirectAttributes) {
@@ -54,10 +54,10 @@ public class BasketController extends ControllerBase {
 			return "redirect:/catalog/" + basketEntry.getCheeseId();
 		}
 		try {
-			Cheese cheese = cheeseServices.find(basketEntry.getCheeseId());
+			Ship ship = cheeseServices.find(basketEntry.getCheeseId());
 			if (basketEntry.getQuantity() != 0) {
-				if (basket.containsKey(cheese)) basket.replace(cheese, basket.get(cheese) + basketEntry.getQuantity());
-				else basket.put(cheese, basketEntry.getQuantity());
+				if (basket.containsKey(ship)) basket.replace(ship, basket.get(ship) + basketEntry.getQuantity());
+				else basket.put(ship, basketEntry.getQuantity());
 			}
 			return "redirect:catalog";
 		} catch (Exception e) {
@@ -66,14 +66,14 @@ public class BasketController extends ControllerBase {
 	}
 
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
-	public String deleteBasketEntry(@ModelAttribute(Constants.BASKET) HashMap<Cheese, Double> basket,
+	public String deleteBasketEntry(@ModelAttribute(Constants.BASKET) HashMap<Ship, Double> basket,
 	                                @PathVariable("id") String id) throws Exception {
 
 		try {
 			int idConverted = Integer.valueOf(id);
-			Cheese cheese = cheeseServices.find(idConverted);
+			Ship ship = cheeseServices.find(idConverted);
 
-			basket.remove(cheese);
+			basket.remove(ship);
 		} catch (Exception e) {
 			return "redirect:../";
 		}
@@ -85,16 +85,16 @@ public class BasketController extends ControllerBase {
 	public String editBasketEntry(@Valid @ModelAttribute("basketEntryEdit") BasketEntry basketEntry,
 	                              BindingResult result,
 	                              RedirectAttributes redirectAttributes,
-	                              @ModelAttribute(Constants.BASKET) HashMap<Cheese, Double> basket,
+	                              @ModelAttribute(Constants.BASKET) HashMap<Ship, Double> basket,
 	                              @PathVariable("id") String id) {
 		if (result.hasErrors()) {
 			redirectAttributes.addFlashAttribute("org.springframework.validation.BindingResult.basketEntryEdit", result);
 			redirectAttributes.addFlashAttribute("basketEntryEdit", basketEntry);
 		} else {
 			try {
-				Cheese cheese = cheeseServices.find(basketEntry.getCheeseId());
-				if (basketEntry.getQuantity() == 0) basket.remove(cheese);
-				else basket.replace(cheese, basketEntry.getQuantity());
+				Ship ship = cheeseServices.find(basketEntry.getCheeseId());
+				if (basketEntry.getQuantity() == 0) basket.remove(ship);
+				else basket.replace(ship, basketEntry.getQuantity());
 			} catch (Exception e) {
 				return "redirect:../";
 			}
