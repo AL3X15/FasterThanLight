@@ -16,7 +16,7 @@ public class CategoryLanguageServices {
 		this.dao = dao;
 	}
 
-	public CategoryLanguage findCheese(int categoryId, Locale locale) throws Exception {
+	public CategoryLanguage findCategory(int categoryId, Locale locale) throws Exception {
 		return dao.findCategory(categoryId, locale);
 	}
 }

@@ -2,7 +2,6 @@ package com.spring.henallux.javawebproject.model;
 
 public class Ship {
 	private Integer id;
-	private String modelCode;
 	private String name;
 	private Double length;
 	private Double width;
@@ -16,10 +15,6 @@ public class Ship {
 	//Setters section
 	public void setId(Integer id) {
 		this.id = id;
-	}
-
-	public void setModelCode(String modelCode) {
-		this.modelCode = modelCode;
 	}
 
 	public void setName(String name) {
@@ -57,10 +52,6 @@ public class Ship {
 	//Getters section
 	public Integer getId() {
 		return id;
-	}
-
-	public String getModelCode() {
-		return modelCode;
 	}
 
 	public String getName() {

@@ -9,6 +9,8 @@ public class CategoryEntity {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
 	private Integer id;
+	@Column(name = "name")
+	private String name;
 
 	public CategoryEntity() {
 	}
@@ -18,8 +20,16 @@ public class CategoryEntity {
 		this.id = id;
 	}
 
+	public void setName(String name) {
+		this.name = name;
+	}
+
 	//Getters section
 	public Integer getId() {
 		return id;
+	}
+
+	public String getName() {
+		return name;
 	}
 }

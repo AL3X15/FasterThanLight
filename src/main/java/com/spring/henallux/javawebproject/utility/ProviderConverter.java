@@ -46,8 +46,8 @@ public class ProviderConverter {
 		return mapper.map(categoryLanguageEntity, CategoryLanguage.class);
 	}
 
-	public CategoryLanguageEntity categoryLanguageModelToCategoryLanguageEntity(CategoryLanguage cheeseLanguage) {
-		return mapper.map(cheeseLanguage, CategoryLanguageEntity.class);
+	public CategoryLanguageEntity categoryLanguageModelToCategoryLanguageEntity(CategoryLanguage categoryLanguage) {
+		return mapper.map(categoryLanguage, CategoryLanguageEntity.class);
 	}
 
 	public Order orderEntityToOrderModel(OrderEntity order) {

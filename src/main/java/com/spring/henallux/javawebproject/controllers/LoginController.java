@@ -15,16 +15,16 @@ import java.util.Locale;
 @RequestMapping(value = "/login")
 public class LoginController extends ControllerBase {
 
-    @Autowired
-    public LoginController(MessageSource messageSource) {
-        super(messageSource);
-    }
+	@Autowired
+	public LoginController(MessageSource messageSource) {
+		super(messageSource);
+	}
 
-    @RequestMapping(method = RequestMethod.GET)
-    public String loginForm(final Model model, Locale locale) {
-        model.addAttribute("loginForm", new UserEntity());
-        model.addAttribute("title", getMessageSource().getMessage("signin", null, locale));
+	@RequestMapping(method = RequestMethod.GET)
+	public String loginForm(final Model model, Locale locale) {
+		model.addAttribute("loginForm", new UserEntity());
+		model.addAttribute("title", getMessageSource().getMessage("signin", null, locale));
 
-        return "integrated:loginForm";
-    }
+		return "integrated:loginForm";
+	}
 }

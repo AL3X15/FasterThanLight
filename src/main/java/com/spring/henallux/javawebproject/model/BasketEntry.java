@@ -7,14 +7,14 @@ public class BasketEntry {
 	private int shipId;
 	@NotNull
 	@Min(0)
-	private Double quantity;
+	private Integer quantity;
 
 	//Setters section
 	public void setShipId(int shipId) {
 		this.shipId = shipId;
 	}
 
-	public void setQuantity(Double quantity) {
+	public void setQuantity(Integer quantity) {
 		this.quantity = quantity;
 	}
 
@@ -23,7 +23,7 @@ public class BasketEntry {
 		return shipId;
 	}
 
-	public Double getQuantity() {
+	public Integer getQuantity() {
 		return quantity;
 	}
 }

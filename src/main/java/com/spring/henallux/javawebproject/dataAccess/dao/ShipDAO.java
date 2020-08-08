@@ -28,10 +28,14 @@ public class ShipDAO {
 	}
 
 	public Ship findShip(int id) throws ShipNotFound {
-		Optional<ShipEntity> cheeseEntity = dataAccess.findById(id);
+		Optional<ShipEntity> shipEntity = dataAccess.findById(id);
 
-		if (!cheeseEntity.isPresent()) throw new ShipNotFound();
-		return mapper.shipEntityToShipModel(cheeseEntity.get());
+		if (!shipEntity.isPresent()) throw new ShipNotFound();
+		return mapper.shipEntityToShipModel(shipEntity.get());
+	}
+
+	public Collection<Ship>findByCategory(int id){
+		return dataAccess.findByCategoryId(id).stream().map(mapper::shipEntityToShipModel).collect(Collectors.toList());
 	}
 
 }

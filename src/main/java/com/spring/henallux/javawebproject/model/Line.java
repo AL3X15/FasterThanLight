@@ -3,7 +3,7 @@ package com.spring.henallux.javawebproject.model;
 
 public class Line {
 	private Integer id;
-	private Double quantity;
+	private Integer quantity;
 	private Double price;
 
 	private Order order;
@@ -18,7 +18,7 @@ public class Line {
 		this.id = id;
 	}
 
-	public void setQuantity(Double quantity) {
+	public void setQuantity(Integer quantity) {
 		this.quantity = quantity;
 	}
 
@@ -39,7 +39,7 @@ public class Line {
 		return id;
 	}
 
-	public Double getQuantity() {
+	public Integer getQuantity() {
 		return quantity;
 	}
 

@@ -34,11 +34,11 @@ public class ShipLanguageDAO {
 
 		int languageId = languageRepository.findByName(language).getId();
 
-		Optional<ShipLanguageEntity> cheeseLanguage = dataAccess.findByShipIdAndLanguageId(shipId, languageId);
+		Optional<ShipLanguageEntity> shipLanguage = dataAccess.findByShipIdAndLanguageId(shipId, languageId);
 
-		if (!cheeseLanguage.isPresent()) throw new ShipLanguageNotFound();
+		if (!shipLanguage.isPresent()) throw new ShipLanguageNotFound();
 
-		return mapper.shipLanguageEntityToShipLanguageModel(cheeseLanguage.get());
+		return mapper.shipLanguageEntityToShipLanguageModel(shipLanguage.get());
 	}
 
 }

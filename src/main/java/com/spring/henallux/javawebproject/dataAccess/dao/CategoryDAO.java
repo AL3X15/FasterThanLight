@@ -28,10 +28,10 @@ public class CategoryDAO {
 	}
 
 	public Category findCategory(int id) throws CategoryNotFound {
-		Optional<CategoryEntity> cheeseEntity = dataAccess.findById(id);
+		Optional<CategoryEntity> categoryEntity = dataAccess.findById(id);
 
-		if (!cheeseEntity.isPresent()) throw new CategoryNotFound();
-		return mapper.categoryEntityToCategoryModel(cheeseEntity.get());
+		if (!categoryEntity.isPresent()) throw new CategoryNotFound();
+		return mapper.categoryEntityToCategoryModel(categoryEntity.get());
 	}
 
 }

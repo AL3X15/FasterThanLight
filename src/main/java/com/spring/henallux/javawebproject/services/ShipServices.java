@@ -25,4 +25,8 @@ public class ShipServices {
 	public Ship find(int id) throws ShipNotFound {
 		return dao.findShip(id);
 	}
+
+	public Collection<Ship> findByCategory(int id){
+		return dao.findByCategory(id);
+	}
 }

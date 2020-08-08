@@ -4,7 +4,7 @@
 </head>
 <body>
 <div class="center">
-	<img class="imageFocus" src="<spring:url value="images/cheeseKing.jpg"/>"/>
+	<img class="imageFocus" src="<spring:url value="images/logo.png"/>"/>
 	<p class="title"><spring:message code="welcome"/> ${name}</p>
 </div>
 </body>

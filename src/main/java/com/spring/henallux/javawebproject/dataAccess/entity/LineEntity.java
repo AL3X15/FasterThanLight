@@ -10,16 +10,16 @@ public class LineEntity {
 	@Column(name = "id")
 	private Integer id;
 	@Column(name = "quantity")
-	private Double quantity;
-	@Column(name = "price_per_kilo")
-	private Double pricePerKilo;
+	private Integer quantity;
+	@Column(name = "price")
+	private Double price;
 
 	@JoinColumn(name = "order_id", referencedColumnName = "id")
 	@ManyToOne
 	private OrderEntity order;
-	@JoinColumn(name = "cheese_id", referencedColumnName = "id")
+	@JoinColumn(name = "ship_id", referencedColumnName = "id")
 	@ManyToOne
-	private CheeseEntity cheese;
+	private ShipEntity ship;
 
 	public LineEntity() {
 
@@ -30,20 +30,20 @@ public class LineEntity {
 		this.id = id;
 	}
 
-	public void setQuantity(Double quantity) {
+	public void setQuantity(Integer quantity) {
 		this.quantity = quantity;
 	}
 
-	public void setPricePerKilo(Double pricePerKilo) {
-		this.pricePerKilo = pricePerKilo;
+	public void setPrice(Double price) {
+		this.price = price;
 	}
 
 	public void setOrder(OrderEntity order) {
 		this.order = order;
 	}
 
-	public void setCheese(CheeseEntity cheese) {
-		this.cheese = cheese;
+	public void setShip(ShipEntity ship) {
+		this.ship = ship;
 	}
 
 	//Getters section
@@ -51,19 +51,19 @@ public class LineEntity {
 		return id;
 	}
 
-	public Double getQuantity() {
+	public Integer getQuantity() {
 		return quantity;
 	}
 
-	public Double getPricePerKilo() {
-		return pricePerKilo;
+	public Double getPrice() {
+		return price;
 	}
 
 	public OrderEntity getOrder() {
 		return order;
 	}
 
-	public CheeseEntity getCheese() {
-		return cheese;
+	public ShipEntity getShip() {
+		return ship;
 	}
 }

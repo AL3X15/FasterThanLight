@@ -16,7 +16,7 @@ public class ShipLanguageServices {
 		this.dao = dao;
 	}
 
-	public ShipLanguage findCheese(int shipId, Locale locale) throws Exception {
+	public ShipLanguage findShip(int shipId, Locale locale) throws Exception {
 		return dao.findShip(shipId, locale);
 	}
 }

@@ -32,6 +32,8 @@ public class OrderController extends ControllerBase {
 	private final LineServices lineServices;
 	private final UserServices userServices;
 
+	//TODO langues
+
 	@Autowired
 	public OrderController(OrderServices orderServices,
 	                       MessageSource messageSource,
@@ -57,7 +59,7 @@ public class OrderController extends ControllerBase {
 	}
 
 	@RequestMapping(value = "/makeOrder", method = RequestMethod.GET)
-	public String makeCommand(@ModelAttribute(value = Constants.BASKET) HashMap<Ship, Double> basket,
+	public String makeCommand(@ModelAttribute(value = Constants.BASKET) HashMap<Ship, Integer> basket,
 	                          Authentication authentication) {
 		try {
 			Order order = new Order();
@@ -70,7 +72,7 @@ public class OrderController extends ControllerBase {
 			order.setCustomer(user);
 			Order orderSave = orderServices.saveOrder(order);
 
-			for (Map.Entry<Ship, Double> basketEntry : basket.entrySet()) {
+			for (Map.Entry<Ship, Integer> basketEntry : basket.entrySet()) {
 				lineServices.saveLine(new Line() {{
 					setQuantity(basketEntry.getValue());
 					setShip(basketEntry.getKey());

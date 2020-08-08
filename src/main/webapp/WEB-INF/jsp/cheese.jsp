@@ -1,11 +1,5 @@
 <%@ include file="include/importTags.jsp" %>
 <%--
-  Created by IntelliJ IDEA.
-  User: HP
-  Date: 06-08-19
-  Time: 15:27
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -20,7 +14,7 @@
 		<p>${cheeseLanguage.getDescription()}</p>
 		<p><spring:message code="pricePerKilo"/> : ${cheeseLanguage.getCheese().getPricePerKilo()}€</p>
 		<spring:url value="/basket" var="basketURL"/>
-		<%--@elvariable id="basketEntry" type="com.spring.henallux.javawebproject.model.BasketEntry"--%>
+		--@elvariable id="basketEntry" type="com.spring.henallux.javawebproject.model.BasketEntry"
 		<form:form id="basketForm" method="POST" action="${basketURL}" modelAttribute="basketEntry">
 			<form:input path="cheeseId" type="hidden" value="${cheeseLanguage.getCheese().getId()}"/>
 			<p><form:label path="quantity"><spring:message code="quantity"/> (kilo)</form:label>
@@ -32,3 +26,4 @@
 </div>
 </body>
 </html>
+--%>
