@@ -8,8 +8,8 @@
 <spring:url value="/images/${shipLanguage.getShip().getURLImage()}" var="imageURL"/>
 <div id="alignCenter">
 	<div class="ship">
-		<p class="title">${shipLanguage.getShip().getName()}</p>
-		<img id="imageCheeseFocus" src=${imageURL}/>
+		<p class="title">${shipLanguage.getDescription()}</p>
+		<img id="imageShipFocus" src=${imageURL}/>
 		<p>${shipLanguage.getDescription()}</p>
 		<p><spring:message code="price"/> : ${shipLanguage.getShip().getUnitPrice()}€</p>
 		<spring:url value="/basket" var="basketURL"/>

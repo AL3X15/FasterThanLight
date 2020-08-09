@@ -1,9 +1,6 @@
 package com.spring.henallux.javawebproject.controllers;
 
-import com.spring.henallux.javawebproject.model.BasketEntry;
-import com.spring.henallux.javawebproject.model.Category;
-import com.spring.henallux.javawebproject.model.Ship;
-import com.spring.henallux.javawebproject.model.ShipLanguage;
+import com.spring.henallux.javawebproject.model.*;
 import com.spring.henallux.javawebproject.services.CategoryLanguageServices;
 import com.spring.henallux.javawebproject.services.CategoryServices;
 import com.spring.henallux.javawebproject.services.ShipLanguageServices;
@@ -14,10 +11,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.Console;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
-//TODO affichage prix, image
+//TODO afficher données vaisseau
 
 @Controller
 @RequestMapping(value = "/catalog")
@@ -45,7 +44,16 @@ public class CatalogController extends ControllerBase {
 		List<Category> categories = (List<Category>) categoryServices.findAll();
 		for (Category category : categories) {
 			category.setShips(shipServices.findByCategory(category.getId()));
+			try {
+				category.setName(categoryLanguageServices.findCategory(category.getId(), locale).getDescription());
+				for (Ship ship : category.getShips()) {
+					ship.setName(shipLanguageServices.findShip(ship.getId(), locale).getDescription());
+				}
+			} catch (Exception e) {
+				return "redirect:../";
+			}
 		}
+
 		model.addAttribute("categories", categories);
 		model.addAttribute("title", getMessageSource().getMessage("catalog", null, locale));
 		return "integrated:catalog";

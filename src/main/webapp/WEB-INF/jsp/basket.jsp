@@ -4,16 +4,11 @@
 <html>
 <head>
 	<script>
-        onload = function () {
-            editButton = document.getElementById("editButton");
-            editForm = document.getElementById("editForm");
-            editButton.onclick = click;
+        function edit(id) {
+            document.getElementById("editButton"+id).style.display = "none";
+            document.getElementById("editForm"+id).style.display = "block";
         }
 
-        function click() {
-            editButton.style.display = "none";
-            editForm.style.display = "block";
-        }
 	</script>
 </head>
 <body>
@@ -24,25 +19,25 @@
 			<a class="delete" href="${deleteEntryURL}">X</a>
 			<p class="title">${basketEntry.key.getName()}</p>
 			<img src="<spring:url value='images/${basketEntry.key.getURLImage()}'/>"/>
-			<p><spring:message code="pricePerKilo"/> ${basketEntry.key.getUnitPrice()}€</p>
-			<p><spring:message code="quantity"/> ${basketEntry.value} kilo</p>
+			<p><spring:message code="price"/> ${basketEntry.key.getUnitPrice()}M €</p>
+			<p><spring:message code="quantity"/> ${basketEntry.value}</p>
 			<spring:url value="/basket/${basketEntry.key.getId()}" var="basketEditURL"/>
 				<%--@elvariable id="basketEntryEdit" type="BasketEntry"--%>
-			<form:form id="editForm" style="display:none;" method="PUT" action="${basketEditURL}"
+			<form:form id="editForm${basketEntry.key.getId()}" style="display:none;" method="PUT" action="${basketEditURL}"
 			           modelAttribute="basketEntryEdit">
 				<form:input path="shipId" type="hidden" value="${basketEntry.key.getId()}"/>
 				<form:label path="quantity"><spring:message code="quantity"/></form:label>
-				<form:input value="${basketEntry.value}" step="0.5" path="quantity"/>
+				<form:input value="${basketEntry.value}" step="1" path="quantity"/>
 				<p><from:errors cssClass="error" path="quantity"/></p>
 				<p><form:button><spring:message code="submit"/></form:button></p>
 			</form:form>
-			<button id="editButton"><spring:message code="edit"/></button>
+			<button id="editButton${basketEntry.key.getId()}" onclick="edit(${basketEntry.key.getId()})"><spring:message code="edit"/></button>
 			<c:set var="somme" scope="page" value="${somme + (basketEntry.value * basketEntry.key.getUnitPrice())}"/>
 		</div>
 	</c:forEach>
 	<div class="bottomnav">
 		<p>
-			<spring:message code="priceTotal"/> ${somme}€
+			<spring:message code="priceTotal"/> ${somme}M €
 		</p>
 		<sec:authorize access="isAuthenticated()">
 			<button onclick="location.href = '<spring:url value="/order/makeOrder"/>'"><spring:message

@@ -1,11 +1,15 @@
 package com.spring.henallux.javawebproject.model;
 
+import java.util.List;
+
 public class CategoryLanguage {
 	private Integer id;
 	private String description;
 
 	private Category category;
 	private Language language;
+
+	private List<ShipLanguage> shipLanguages;
 
 	public CategoryLanguage() {
 
@@ -28,6 +32,10 @@ public class CategoryLanguage {
 		this.language = language;
 	}
 
+	public void setShipLanguages(List<ShipLanguage> shipLanguages) {
+		this.shipLanguages = shipLanguages;
+	}
+
 	//Getters section
 	public Integer getId() {
 		return id;
@@ -43,5 +51,9 @@ public class CategoryLanguage {
 
 	public Language getLanguage() {
 		return language;
+	}
+
+	public List<ShipLanguage> getShipLanguages() {
+		return shipLanguages;
 	}
 }

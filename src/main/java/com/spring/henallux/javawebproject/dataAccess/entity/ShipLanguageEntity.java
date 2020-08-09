@@ -14,7 +14,7 @@ public class ShipLanguageEntity {
 
 	@JoinColumn(name = "ship_id", referencedColumnName = "id")
 	@ManyToOne
-	private ShipLanguageEntity ship;
+	private ShipEntity ship;
 	@JoinColumn(name = "language_id", referencedColumnName = "id")
 	@ManyToOne
 	private LanguageEntity language;
@@ -31,7 +31,7 @@ public class ShipLanguageEntity {
 		this.description = description;
 	}
 
-	public void setShip(ShipLanguageEntity ship) {
+	public void setShip(ShipEntity ship) {
 		this.ship = ship;
 	}
 
@@ -48,7 +48,7 @@ public class ShipLanguageEntity {
 		return description;
 	}
 
-	public ShipLanguageEntity getShip() {
+	public ShipEntity getShip() {
 		return ship;
 	}
 

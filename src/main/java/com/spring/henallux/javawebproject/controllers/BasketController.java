@@ -1,6 +1,7 @@
 package com.spring.henallux.javawebproject.controllers;
 
 import com.spring.henallux.javawebproject.model.*;
+import com.spring.henallux.javawebproject.services.ShipLanguageServices;
 import com.spring.henallux.javawebproject.services.ShipServices;
 import com.spring.henallux.javawebproject.utility.Constants;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,19 +15,22 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import javax.validation.Valid;
 import java.util.*;
 
-//TODO changer la quantité (san doute l'url)
-//TODO enlever les kilos
+//TODO langue
 
 @Controller
 @RequestMapping(value = "/basket")
 @SessionAttributes({Constants.BASKET})
 public class BasketController extends ControllerBase {
 	private final ShipServices shipServices;
+	private final ShipLanguageServices shipLanguageServices;
 
 	@Autowired
-	public BasketController(MessageSource messageSource, ShipServices shipServices) {
+	public BasketController(MessageSource messageSource,
+	                        ShipServices shipServices,
+	                        ShipLanguageServices shipLanguageServices) {
 		super(messageSource);
 		this.shipServices = shipServices;
+		this.shipLanguageServices = shipLanguageServices;
 	}
 
 	@ModelAttribute(Constants.BASKET)
@@ -39,6 +43,14 @@ public class BasketController extends ControllerBase {
 	                        @ModelAttribute(Constants.BASKET) HashMap<Ship, Integer> basket) {
 		model.addAttribute(Constants.BASKET, basket);
 		model.addAttribute("title", getMessageSource().getMessage("basket", null, locale));
+
+		try {
+			for (Map.Entry<Ship, Integer> entry : basket.entrySet())
+				entry.getKey().setName(shipLanguageServices.findShip(entry.getKey().getId(), locale).getDescription());
+		} catch (Exception e) {
+			return "redirect:../";
+		}
+
 		if (!model.containsAttribute("basketEntryEdit"))
 			model.addAttribute("basketEntryEdit", new BasketEntry());
 
@@ -74,8 +86,14 @@ public class BasketController extends ControllerBase {
 		try {
 			int idConverted = Integer.valueOf(id);
 			Ship ship = shipServices.find(idConverted);
+			Ship basketShip = new Ship();
 
-			basket.remove(ship);
+			for (Map.Entry<Ship, Integer> e : basket.entrySet()) {
+				if (e.getKey().getId() == ship.getId())
+					basketShip = e.getKey();
+			}
+
+			basket.remove(basketShip);
 		} catch (Exception e) {
 			return "redirect:../";
 		}
@@ -95,8 +113,15 @@ public class BasketController extends ControllerBase {
 		} else {
 			try {
 				Ship ship = shipServices.find(basketEntry.getShipId());
-				if (basketEntry.getQuantity() == 0) basket.remove(ship);
-				else basket.replace(ship, basketEntry.getQuantity());
+				Ship basketShip = new Ship();
+
+				for (Map.Entry<Ship, Integer> e : basket.entrySet()) {
+					if (e.getKey().getId() == ship.getId())
+						basketShip = e.getKey();
+				}
+
+				if (basketEntry.getQuantity() == 0) basket.remove(basketShip);
+				else basket.replace(basketShip, basketEntry.getQuantity());
 			} catch (Exception e) {
 				return "redirect:../";
 			}
