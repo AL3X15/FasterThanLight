@@ -11,7 +11,8 @@
 
 	</script>
 </head>
-<body>
+<body class="background">
+<br>
 <c:if test="${not empty basket}">
 	<c:forEach items="${basket}" var="basketEntry">
 		<div class="ship">

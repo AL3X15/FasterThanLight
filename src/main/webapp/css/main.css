@@ -1,3 +1,7 @@
+html {
+	color: white;
+}
+
 .error {
 	color: red;
 	display: block;
@@ -45,17 +49,26 @@ img {
 }
 
 .ship {
-	background: yellow;
-	margin-top: 100px;
+	background: black;
+	color: white;
+	margin-top: 50px;
 	margin-left: 50px;
 	text-align: center;
-	margin-bottom: 100px;
+	margin-bottom: 50px;
 	display: inline-block;
 	border: 1px solid black;
 }
 
 .ship .delete {
 	text-align: right;
+}
+
+.background {
+	background-image: url("../images/1745055.png");
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
 }
 
 .order {
@@ -155,5 +168,5 @@ form {
 }
 
 .bottomnav p {
-	color: yellow;
+	color: white;
 }

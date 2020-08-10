@@ -3,10 +3,10 @@
 <html>
 <head>
 </head>
-<body>
+<body class="background">
 <c:if test="${not empty orders}">
 	<c:forEach items="${orders}" var="order">
-		<div class="order">
+		<div class="ship">
 			<p><spring:message code="creationDate"/> ${formatDate.format(order.getCreationDate())}</p>
 			<c:if test="${not empty order.getDeliveryDate()}">
 				<p><spring:message code="deliveryDate"/> ${formatDate.format(order.getDeliveryDate())}</p>

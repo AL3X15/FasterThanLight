@@ -3,9 +3,9 @@ package com.spring.henallux.javawebproject.model;
 public class Ship {
 	private Integer id;
 	private String name;
-	private Double length;
-	private Double width;
-	private Double height;
+	private Integer length;
+	private Integer width;
+	private Integer height;
 	private String builder;
 	private Double unitPrice;
 	private String URLImage;
@@ -21,15 +21,15 @@ public class Ship {
 		this.name = name;
 	}
 
-	public void setLength(Double length) {
+	public void setLength(Integer length) {
 		this.length = length;
 	}
 
-	public void setWidth(Double width) {
+	public void setWidth(Integer width) {
 		this.width = width;
 	}
 
-	public void setHeight(Double height) {
+	public void setHeight(Integer height) {
 		this.height = height;
 	}
 
@@ -58,15 +58,15 @@ public class Ship {
 		return name;
 	}
 
-	public Double getLength() {
+	public Integer getLength() {
 		return length;
 	}
 
-	public Double getWidth() {
+	public Integer getWidth() {
 		return width;
 	}
 
-	public Double getHeight() {
+	public Integer getHeight() {
 		return height;
 	}
 

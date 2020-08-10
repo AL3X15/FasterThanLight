@@ -5,14 +5,14 @@
 <head>
 	<link href="<spring:url value="../css/main.css"/>" rel="stylesheet" type="text/css"/>
 </head>
-<body>
+<body class="background">
 <c:forEach items="${lines}" var="line">
-	<div class="order">
+	<div class="ship">
 		<p class="title">${line.getShip().getName()}</p>
 		<img src="<spring:url value="/images/${line.getShip().getURLImage()}"/>"/>
-		<p><spring:message code="pricePerKilo"/> ${line.getUnitPrice()}€</p>
+		<p><spring:message code="price"/> ${line.getPrice()}€</p>
 		<p><spring:message code="quantity"/> ${line.getQuantity()}</p>
-		<c:set var="somme" scope="page" value="${somme + (line.getUnitPrice() * line.getQuantity())}"/>
+		<c:set var="somme" scope="page" value="${somme + (line.getPrice() * line.getQuantity())}"/>
 	</div>
 </c:forEach>
 <div class="bottomnav">

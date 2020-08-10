@@ -4,7 +4,7 @@
 <head>
 	<link href="<spring:url value="../css/main.css"/>" rel="stylesheet" type="text/css"/>
 </head>
-<body>
+<body class="background">
 <spring:url value="/images/${shipLanguage.getShip().getURLImage()}" var="imageURL"/>
 <div id="alignCenter">
 	<div class="ship">
@@ -12,6 +12,10 @@
 		<img id="imageShipFocus" src=${imageURL}/>
 		<p>${shipLanguage.getDescription()}</p>
 		<p><spring:message code="price"/> : ${shipLanguage.getShip().getUnitPrice()}€</p>
+		<p><spring:message code="length"/> : ${shipLanguage.getShip().getLength()}m</p>
+		<p><spring:message code="width"/> : ${shipLanguage.getShip().getWidth()}m</p>
+		<p><spring:message code="height"/> : ${shipLanguage.getShip().getHeight()}m</p>
+		<p><spring:message code="builder"/> : ${shipLanguage.getShip().getBuilder()}</p>
 		<spring:url value="/basket" var="basketURL"/>
 		<%--@elvariable id="basketEntry" type="com.spring.henallux.javawebproject.model.BasketEntry"--%>
 		<form:form id="basketForm" method="POST" action="${basketURL}" modelAttribute="basketEntry">

@@ -14,7 +14,7 @@
         }
 	</script>
 </head>
-<body>
+<body class="background">
 <%--@elvariable id="user" type="User"--%>
 <spring:url value="/register" var="registerURL"/>
 <form:form id="login" method="POST" action="${registerURL}" modelAttribute="user">

@@ -2,7 +2,7 @@
 <html>
 <head>
 </head>
-<body>
+<body class="background">
 <%--@elvariable id="loginForm" type="LoginForm"--%>
 <form:form id="login" method="POST" modelAttribute="loginForm">
 	<p>

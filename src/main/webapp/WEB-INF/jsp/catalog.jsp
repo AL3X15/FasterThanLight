@@ -3,7 +3,8 @@
 <html>
 <head>
 </head>
-<body>
+<body class="background">
+<br>
 <br>
 <br>
 <c:if test="${not empty categories}">

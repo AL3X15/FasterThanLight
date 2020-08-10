@@ -11,6 +11,8 @@ import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
 
+//TODO ajouter un admin
+
 @Controller
 @RequestMapping(value = "/admin")
 public class AdminController extends ControllerBase {

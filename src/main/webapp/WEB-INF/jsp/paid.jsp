@@ -4,7 +4,7 @@
 <head>
 	<link href="../css/main.css" type="text/css" rel="stylesheet">
 </head>
-<body>
+<body class="background">
 <p class="center"><spring:message code="successfulPayment"/></p>
 </body>
 </html>

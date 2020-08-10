@@ -3,7 +3,7 @@
 <html>
 <head>
 </head>
-<body>
+<body class="background">
 <p class="center"><spring:message code="adminMessage"/></p>
 </body>
 </html>
