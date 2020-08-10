@@ -27,7 +27,7 @@ public class ShipLanguageDAO {
 		this.mapper = mapper;
 	}
 
-	public ShipLanguage findShip(int shipId, Locale locale) throws Exception {
+	public ShipLanguage findShip(int shipId, Locale locale) throws ShipLanguageNotFound {
 		String language;
 		if (locale.getLanguage().equals("fr")) language = "français";
 		else language = "english";

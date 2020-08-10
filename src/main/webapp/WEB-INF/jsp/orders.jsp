@@ -6,7 +6,7 @@
 <body class="background">
 <c:if test="${not empty orders}">
 	<c:forEach items="${orders}" var="order">
-		<div class="ship">
+		<div class="order">
 			<p><spring:message code="creationDate"/> ${formatDate.format(order.getCreationDate())}</p>
 			<c:if test="${not empty order.getDeliveryDate()}">
 				<p><spring:message code="deliveryDate"/> ${formatDate.format(order.getDeliveryDate())}</p>

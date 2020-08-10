@@ -19,10 +19,10 @@
 	<p><spring:message code="priceTotal"/> ${somme}€</p>
 	<c:if test="${not order.getIsPay()}">
 		<form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="POST">
-			<input name="business" type="hidden" value="kingCheese@hotmail.be"/>
-			<input name="password" type="hidden" value="secret"/>
+			<input name="business" type="hidden" value="FasterThanLight@business.example.com"/>
+			<input name="password" type="hidden" value="test1234"/>
 			<input name="cert_id" type="hidden"
-			       value="AW7yKZu5fm6vJKjn_6p6Ngu2X17D6SI51hdQshcQk88ARWeAkIP6D7chZhv41b-sSj5FhCd17bI3SpaX"/>
+			       value="ASq15zwbkN0RJcERWnO31YgfQnNZALGg3JnshT04nqcLW7RxRx7UHSXP"/>
 			<input name="cmd" type="hidden" value="_xclick"/>
 			<input name="amount" type="hidden" value="${somme}"/>
 			<input name="item_name" type="hidden" value="${order.getId()} pay">

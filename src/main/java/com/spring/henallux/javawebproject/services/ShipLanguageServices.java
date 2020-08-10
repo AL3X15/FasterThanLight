@@ -1,6 +1,7 @@
 package com.spring.henallux.javawebproject.services;
 
 import com.spring.henallux.javawebproject.dataAccess.dao.ShipLanguageDAO;
+import com.spring.henallux.javawebproject.exceptions.ShipLanguageNotFound;
 import com.spring.henallux.javawebproject.model.ShipLanguage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,7 +17,7 @@ public class ShipLanguageServices {
 		this.dao = dao;
 	}
 
-	public ShipLanguage findShip(int shipId, Locale locale) throws Exception {
+	public ShipLanguage findShip(int shipId, Locale locale) throws ShipLanguageNotFound {
 		return dao.findShip(shipId, locale);
 	}
 }

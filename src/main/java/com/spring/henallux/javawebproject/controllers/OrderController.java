@@ -1,12 +1,14 @@
 package com.spring.henallux.javawebproject.controllers;
 
 import com.spring.henallux.javawebproject.dataAccess.entity.UserEntity;
+import com.spring.henallux.javawebproject.exceptions.ShipLanguageNotFound;
 import com.spring.henallux.javawebproject.model.Line;
 import com.spring.henallux.javawebproject.model.Order;
 import com.spring.henallux.javawebproject.model.Ship;
 import com.spring.henallux.javawebproject.model.User;
 import com.spring.henallux.javawebproject.services.LineServices;
 import com.spring.henallux.javawebproject.services.OrderServices;
+import com.spring.henallux.javawebproject.services.ShipLanguageServices;
 import com.spring.henallux.javawebproject.services.UserServices;
 import com.spring.henallux.javawebproject.utility.Constants;
 import com.spring.henallux.javawebproject.utility.ProviderConverter;
@@ -31,19 +33,20 @@ public class OrderController extends ControllerBase {
 	private final OrderServices orderServices;
 	private final LineServices lineServices;
 	private final UserServices userServices;
+	private final ShipLanguageServices shipLanguageServices;
 
-	//TODO langues
-	//TODO plus de détails
 
 	@Autowired
 	public OrderController(OrderServices orderServices,
 	                       MessageSource messageSource,
 	                       LineServices lineServices,
-	                       UserServices userServices) {
+	                       UserServices userServices,
+	                       ShipLanguageServices shipLanguageServices) {
 		super(messageSource);
 		this.orderServices = orderServices;
 		this.lineServices = lineServices;
 		this.userServices = userServices;
+		this.shipLanguageServices = shipLanguageServices;
 	}
 
 	@RequestMapping(method = RequestMethod.GET)
@@ -96,6 +99,13 @@ public class OrderController extends ControllerBase {
 		try {
 			int id = Integer.valueOf(orderId);
 			Collection<Line> lines = lineServices.findLines(id);
+			for (Line line : lines) {
+				try {
+					line.getShip().setName(shipLanguageServices.findShip(line.getShip().getId(), locale).getDescription());
+				} catch (Exception e) {
+					return "redirect:../";
+				}
+			}
 			model.addAttribute("lines", lines);
 			model.addAttribute("order", lines.stream().collect(Collectors.toList()).get(0).getOrder());
 			model.addAttribute("title", getMessageSource().getMessage("orderTitle", null, locale));
